@@ -123,11 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!4 &385385634 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 385385634, guid: 95e6f7a887755b5478cce5d01cedce97, type: 3}
-  m_PrefabInstance: {fileID: 3598652627781302987}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1597988978
 GameObject:
   m_ObjectHideFlags: 0
@@ -212,26 +207,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &2021324015 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 3598652628983402020, guid: 95e6f7a887755b5478cce5d01cedce97, type: 3}
-  m_PrefabInstance: {fileID: 3598652627781302987}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2021324019
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2021324015}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8207aa1b4e8a7ae43842654c6f7274f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  wheelPrefab: {fileID: 4038552538407308684, guid: b6ebe197e7926b048933fb28487f70a2, type: 3}
-  wheelSpawnPoint: {fileID: 385385634}
-  spawnClips: []
 --- !u!1001 &3598652627781302987
 PrefabInstance:
   m_ObjectHideFlags: 0
