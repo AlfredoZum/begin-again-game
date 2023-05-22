@@ -65,7 +65,7 @@ public class Movement : MonoBehaviour
             Vector3 playerPosition = new Vector3( initPosition.x, initPosition.y, 0 );
             this.transform.position = playerPosition;
 
-            floor.transform.position = new Vector3( secondPosition.x, secondPosition.y, 0 );
+            floor.transform.position = new Vector3( secondPosition.x, (secondPosition.y - 0.5f), 0 );
             floor.SetActive(true);
 
 
