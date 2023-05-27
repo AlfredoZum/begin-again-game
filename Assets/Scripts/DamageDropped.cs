@@ -19,7 +19,9 @@ public class DamageDropped : MonoBehaviour
     void Start()
     {
         canvasPlayer = GameObject.FindWithTag("uiCanvasPlayer").GetComponent<Canvas>();
-        spikeWheelFall = GameObject.FindWithTag("SpikeWheelFall").GetComponent<SpikeWheelFall>();
+        var go = GameObject.FindWithTag("SpikeWheelFall");
+        if(go != null)
+            spikeWheelFall = GameObject.FindWithTag("SpikeWheelFall").GetComponent<SpikeWheelFall>();
     }
 
     // Update is called once per frame
