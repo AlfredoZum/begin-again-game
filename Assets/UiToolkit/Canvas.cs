@@ -11,7 +11,8 @@ public class Canvas : MonoBehaviour
     VisualElement image2;
     VisualElement image3;
 
-    Button button;
+    Button buttonPause;
+    Button buttonPlay;
 
     private void OnEnable()
     {
@@ -24,7 +25,24 @@ public class Canvas : MonoBehaviour
 
         image3.style.display = DisplayStyle.Flex;
 
-        button = root.Q<Button>("ButtonPausa");
+        buttonPause = root.Q<Button>("ButtonPausa") as Button;
+        buttonPause.RegisterCallback<ClickEvent>(OnButtonClickPausa);
+
+        buttonPlay = root.Q<Button>("ButtonPlay") as Button;
+        buttonPlay.RegisterCallback<ClickEvent>(OnButtonClickPlay);
+
+    }
+
+    public void OnButtonClickPausa(ClickEvent evt){
+        Time.timeScale = 0f;
+        buttonPause.style.display = DisplayStyle.None;
+        buttonPlay.style.display = DisplayStyle.Flex;
+    }
+
+    public void OnButtonClickPlay(ClickEvent evt){
+        Time.timeScale = 1f;
+        buttonPause.style.display = DisplayStyle.Flex;
+        buttonPlay.style.display = DisplayStyle.None;
     }
 
     public void TakeLife(int health)
