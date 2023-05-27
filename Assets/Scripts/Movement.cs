@@ -17,6 +17,8 @@ public class Movement : MonoBehaviour
     [SerializeField] private float speed;
     [SerializeField] private float jumpForce;
 
+    [SerializeField] private ParticleSystem particle;
+
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -43,11 +45,14 @@ public class Movement : MonoBehaviour
         if (horizontal != 0)
         {
             // anim.SetBool("jump", false);
-            anim.SetBool("runR", true);
+            // anim.SetBool("punching", false);
+            anim.SetBool("runR", true);   
             GetComponent<SpriteRenderer>().flipX = horizontal > 0 ? false : true;
+            particle.Play();
         }
         else
         {
+            // anim.SetBool("punching", false);
             anim.SetBool("runR", false);
         }
 
@@ -57,6 +62,7 @@ public class Movement : MonoBehaviour
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             initPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
             Debug.Log(initPosition.x);
+            particle.Play();
         }
         else if (Input.GetKeyDown(KeyCode.Space))
         {
@@ -67,8 +73,14 @@ public class Movement : MonoBehaviour
 
             floor.transform.position = new Vector3( secondPosition.x, (secondPosition.y - 0.5f), 0 );
             floor.SetActive(true);
+             StartCoroutine(deleteFloor());
+        }
 
-
+        if (Input.GetKeyDown("f")){
+            anim.SetBool("runR", false);
+            anim.SetBool("punching", true);
+        } else if (Input.GetKeyUp("f")){
+            anim.SetBool("punching", false);
         }
 
         // if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) < 0.0001f){
@@ -77,9 +89,12 @@ public class Movement : MonoBehaviour
         // } else {
         //     // anim.SetBool("jump", false);
         // }
+        
     }
 
-    //     private void JumpBtn() {
-    //         rb.addForce(new Vector2(0, jumpForce), Force)
-    //     }
+     private IEnumerator deleteFloor(){
+        yield return new WaitForSeconds(4);
+        floor.SetActive(false);
+
+    }
 }

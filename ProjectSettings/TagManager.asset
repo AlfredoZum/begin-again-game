@@ -9,6 +9,12 @@ TagManager:
   - wallLeft
   - wallRight
   - wheel
+  - floorWheel
+  - attackCollider
+  - uiCanvasPlayer
+  - NextLevel
+  - SpikeWheelFall
+  - FallSpikeAction
   layers:
   - Default
   - TransparentFX
@@ -17,7 +23,7 @@ TagManager:
   - Water
   - UI
   - 
-  - 
+  - enemy
   - 
   - 
   - 
