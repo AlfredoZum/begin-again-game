@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -35,4 +36,11 @@ public class SpikeWheelFall : MonoBehaviour
         Vector3 spikerPosition = new Vector3(2.67f, 7.4f, 0);
         this.transform.position = spikerPosition;
     }
+
+    // private void OnCollisionEnter2D(Collision2D other)
+    // {
+    //     spawner.Spawn();
+    // }
+    //
+    // public WheelSpawner spawner;
 }

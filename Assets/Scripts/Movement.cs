@@ -39,6 +39,11 @@ public class Movement : MonoBehaviour
         transform.Translate(horizontal * speed * Time.deltaTime, 0, 0);
     }
 
+    public AudioClip[] sfxPunches;
+    public AudioClip[] sfxJump;
+    // public AudioClip[] sfxWalk;
+    public AudioSource sfxAudioSource;
+    
     private void PlayerAnimation()
     {
 
@@ -49,6 +54,7 @@ public class Movement : MonoBehaviour
             anim.SetBool("runR", true);   
             GetComponent<SpriteRenderer>().flipX = horizontal > 0 ? false : true;
             particle.Play();
+            // SoundManager.Instance.PlaySfx(sfxAudioSource, sfxWalk);
         }
         else
         {
@@ -58,6 +64,7 @@ public class Movement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.Space) && Mathf.Abs(rb.velocity.y) < 0.0001f)
         {
+            SoundManager.Instance.PlaySfx(sfxAudioSource, sfxJump);
             // anim.SetBool("jump", true);
             rb.AddForce(new Vector2(0, jumpForce), ForceMode2D.Impulse);
             initPosition = GameObject.FindGameObjectWithTag("Player").transform.position;
@@ -79,6 +86,7 @@ public class Movement : MonoBehaviour
         if (Input.GetKeyDown("f")){
             anim.SetBool("runR", false);
             anim.SetBool("punching", true);
+            SoundManager.Instance.PlaySfx(sfxAudioSource, sfxPunches);
         } else if (Input.GetKeyUp("f")){
             anim.SetBool("punching", false);
         }
